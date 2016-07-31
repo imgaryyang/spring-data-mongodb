@@ -114,7 +114,7 @@ import com.mongodb.util.JSONParseException;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import reactor.core.tuple.Tuple2;
+import reactor.util.function.Tuple2;
 
 /**
  * Primary implementation of {@link ReactiveMongoOperations}.
@@ -480,7 +480,7 @@ public class ReactiveMongoTemplate implements ReactiveMongoOperations, Applicati
 	public Mono<Boolean> collectionExists(final String collectionName) {
 
 		return createMono(db -> Flux.from(db.listCollectionNames()).filter(s -> s.equals(collectionName)).map(s -> true)
-				.singleOrDefault(() -> false));
+				.single(false));
 	}
 
 	/* (non-Javadoc)
