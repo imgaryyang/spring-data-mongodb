@@ -121,6 +121,11 @@ public class ReactivePerformanceTests {
 			public Document fetch(DBRef dbRef) {
 				return null;
 			}
+
+			@Override
+			public List<Document> bulkFetch(List<DBRef> dbRefs) {
+				return null;
+			}
 		}, context);
 		this.operations = new ReactiveMongoTemplate(mongoDbFactory, converter);
 

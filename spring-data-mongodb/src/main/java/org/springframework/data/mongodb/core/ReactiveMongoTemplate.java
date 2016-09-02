@@ -2238,6 +2238,11 @@ public class ReactiveMongoTemplate implements ReactiveMongoOperations, Applicati
 		public Document fetch(DBRef dbRef) {
 			return null;
 		}
+
+		@Override
+		public List<Document> bulkFetch(List<DBRef> dbRefs) {
+			return null;
+		}
 	}
 
 	/**
